@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Flashcards</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="card" onclick="rotateCard()">
+            <div class="card-inner">
+                <div class="card-front">
+                    {{ flashcards[current_card_index].english }}
+                </div>
+                <div class="card-back">
+                    {{ flashcards[current_card_index].russian }}
+                </div>
+            </div>
+        </div>
+        <form action="/next" method="post">
+            <button type="submit" class="next-btn">Next</button>
+        </form>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
